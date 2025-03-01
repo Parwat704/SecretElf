@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Participants</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ff5722;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+        .participants {
+            margin-top: 2rem;
+            text-align: left;
+            font-size: 1.2rem;
+            list-style: none;
+            padding-left: 0;
+        }
+        .participants li {
+            margin: 10px 0;
+        }
+        .back-link {
+            margin-top: 2rem;
+        }
+        .back-link a {
+            color: #ff5722;
+            text-decoration: none;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Admin - Participants List</h1>
+    </header>
+
+    <div class="container">
+        <h2>List of Registered Participants</h2>
+        <ul class="participants">
+            {% for participant in participants %}
+                <li><strong>{{ participant.name }}</strong> ({{ participant.email }})</li>
+            {% endfor %}
+        </ul>
+
+        <div class="back-link">
+            <p><a href="{{ url_for('home') }}">Back to Homepage</a></p>
+        </div>
+    </div>
+
+</body>
+</html>
